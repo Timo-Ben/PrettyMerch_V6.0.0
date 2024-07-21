@@ -1,0 +1,47 @@
+{
+   "background": {
+      "default_icon": {
+         "16": "icons/icon16.png",
+         "24": "icons/icon24.png",
+         "32": "icons/icon32.png"
+      },
+      "persistent": true,
+      "scripts": [ "plugins/jquery/jquery-3.6.0.min.js", "plugins/moment.min.js", "plugins/moment-timezone-with-data-10-year-range.min.js", "plugins/dexie.min.js", "plugins/common.min.js", "plugins/jquery-csv/jquery.csv.min.js", "src/background.min.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "16": "assets/icons/icon16.png",
+         "24": "assets/icons/icon24.png",
+         "32": "assets/icons/icon32.png"
+      },
+      "default_title": "PrettyMerch"
+   },
+   "content_scripts": [ {
+      "css": [ "plugins/datepicker/caleran.min.css", "css/pm_css_overrides.min.css" ],
+      "js": [ "plugins/jquery/jquery-3.6.0.min.js", "plugins/bootstrap/js/popper.min.js", "plugins/bootstrap/js/bootstrap.min.js", "plugins/moment.min.js", "plugins/moment-timezone-with-data-10-year-range.min.js", "plugins/common.min.js", "plugins/odometer/odometer.min.js", "plugins/confetti.min.js", "plugins/floatingScrollbar.min.js", "plugins/floatThead.min.js", "plugins/Chart.min.js", "plugins/datepicker/caleran.min.js", "plugins/bootstrap-slider.min.js", "plugins/kwex/my_kwex.min.js", "src/content.min.js" ],
+      "matches": [ "https://merch.amazon.com/*" ],
+      "run_at": "document_end"
+   }, {
+      "css": [ "plugins/bootstrap/css/bootstrap.min.css", "css/bootstrap-slider.min.css", "css/pretty-styles.min.css", "css/pretty-fonts.min.css", "plugins/odometer/odometer-theme-minimal.min.css", "css/font-awesome.min.css" ],
+      "exclude_matches": [ "https://merch.amazon.com/dashboard*oldDash*" ],
+      "matches": [ "https://merch.amazon.com/dashboard*" ],
+      "run_at": "document_end"
+   }, {
+      "js": [ "plugins/jquery/jquery-3.6.0.min.js", "plugins/moment.min.js", "plugins/moment-timezone-with-data-10-year-range.min.js", "plugins/common.min.js", "src/content.min.js" ],
+      "matches": [ "https://www.amazon.com/ap/signin*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "A beautiful dashboard for Merch by Amazon. It updates as you sell and notifies you instantly about new sales with a cha-ching sound",
+   "icons": {
+      "128": "assets/icons/icon128.png",
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7rTRFHCMrhCS2on1uI8+MhBojKUleVtyDnyWzepHQC9Q46Fkvv+2Wa/yxigd/H3377rmFVeNF3l4jf9dfp//eVwHHks5l8HlLV/ScLMclPxsiwYOuH7Pe2HTE3MkWjYU5P2Jv42jp+kz+ndChxwaUd/yy9qzwps6oV6VtseHb25NPgGcg/vtUZ429tH51ClXvSIRKarrsBVLfyuZ3UM3MB/VnOQWZN2ONKxgshJN96dcGnv4bfu/lfdZtNsvrAOLe5dxR3Tf+fXQxHONCJvNyrLen47lag7dAYDLDvdFdFuLESnnMewdoTfCozVIoLvJhzBbfrher55BMeVVf3rRlwIDAQAB",
+   "manifest_version": 2,
+   "name": "PrettyMerch for Merch by Amazon™",
+   "permissions": [ "webRequest", "webRequestBlocking", "notifications", "tabs", "storage", "unlimitedStorage", "alarms", "*://*.amazon.com/*", "*://*.amazon.co.uk/*", "*://*.amazon.de/*", "*://*.amazon.fr/*", "*://*.amazon.com.au/*", "*://*.amazon.com.br/*", "*://*.amazon.ca/*", "*://*.amazon.cn/*", "*://*.amazon.in/*", "*://*.amazon.it/*", "*://*.amazon.jp/*", "*://*.amazon.co.jp/*", "*://*.amazon.com.mx/*", "*://*.amazon.nl/*", "*://*.amazon.es/*", "*://*.gumroad.com/*", "*://*.prettymerch.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "6.6.00",
+   "web_accessible_resources": [ "assets/*.*" ]
+}
